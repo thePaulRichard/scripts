@@ -12,7 +12,7 @@ done
 
 for i in $(docker images -aq)
 do
-	echo $(docker rmi $i)
+	echo $(docker rmi -f $i)
 done
 
 for i in $(docker network ls --filter type=custom -q)
