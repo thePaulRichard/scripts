@@ -12,8 +12,7 @@ C:\Backup\Database\%date:~-10,2%%date:~-7,2%%date:~-4,4%.zip C:\Backup\Database\
 del D:\Backup\Database\*.bak
 
 ::Sync the .zip file to the Amazon S3 bucket
-"C:\Program Files\Amazon\AWSCLI\aws.exe" s3 sync D:\Backup\Database s3://bucket --delete
---storage-class STANDARD_IA
+"C:\Program Files\Amazon\AWSCLI\aws.exe" s3 sync D:\Backup\Database s3://bucket --delete --storage-class STANDARD_IA
 
 ::Erase all files older then 7 days
 forfiles /p C:\Backup\Database /s /d -7 /c "cmd /c del @path"
